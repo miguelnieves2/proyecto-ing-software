@@ -1,0 +1,69 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            {{!-- Formulario --}}
+            <div class="card">
+                <div class="card-body">
+                    <form action="/admin/add-medico" method="POST">
+                        <div class="form-group">
+                            <label for="nombre-medico">Nombre del médico:</label>
+                            <input type="text" class="form-control" name="nombre-medico" placeholder="Nombre del medico"
+                                autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="documento-identidad">Documento de identidad:</label>
+                            <input type="number" name="documento-identidad" class="form-control"
+                                placeholder="Documento de identidad" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha-nacimiento">Fecha de nacimiento:</label>
+                            <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="especialidad">Especialidad:</label>
+                            <input type="text" id="especialidad" name="especialidad" class="form-control"
+                                placeholder="Especialidad">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="correo">Correo electrónico:</label>
+                            <input type="email" id="correo" name="correo" class="form-control"
+                                placeholder="Correo electrónico">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contraseña">Contraseña:</label>
+                            <input type="password" id="contraseña" name="contraseña" class="form-control"
+                                placeholder="Contraseña">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="celular">Número de celular:</label>
+                            <input type="tel" id="celular" name="celular" class="form-control"
+                                placeholder="Número de celular">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rol">Rol:</label>
+                            <select id="rol" name="rol" class="form-control" required>
+                                <option selected>Seleccione una opción</option>
+                                <option value="medico">Médico</option>
+                                <option value="recepcionista">Recepcionista</option>
+                                <option value="paciente">Paciente</option>
+                                <option value="administrador">Administrador</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Save
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

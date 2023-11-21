@@ -3,14 +3,14 @@ import { getMedicos, getMedico, createMedico, updateMedico, deleteMedico } from 
 
 const router = Router()
 
-router.get('/medicos', getMedicos)
+router.get('/', getMedicos)
 
-router.get('/medicos/:id', getMedico)
+router.get('/:id', getMedico)
 
-router.post('/medicos', createMedico)
+router.post('/', createMedico)
 
-router.patch('/medicos/:id', updateMedico)
+router.patch('/:id', updateMedico)
 
-router.delete('/medicos/:id', deleteMedico)
+router.delete('/:id', deleteMedico)
 
 export default router
