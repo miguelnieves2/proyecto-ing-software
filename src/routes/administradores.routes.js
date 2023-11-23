@@ -6,6 +6,11 @@ import { createMedico, getMedicos, deleteMedico, getMedico, updateMedico } from 
 
 const router = Router()
 
+// Crear la vista /home-admin
+router.get('/home-admin', (req, res) => {
+    res.render('admins/home-admin')
+})
+
 
 // Renderizar o mostrar el formulario (add-medico.hbs)
 router.get('/add-medico', (req, res) => {
@@ -15,21 +20,24 @@ router.get('/add-medico', (req, res) => {
 // Realiza la petición para crear el medico.
 router.post('/add-medico', async (req, res) => {
     try {
-        const { 'nombre-medico': nombreMedico, 'documento-identidad': documentoIdentidad, 'fecha-nacimiento': fechaNacimiento, especialidad, correo, contraseña, celular, rol } = req.body;
+        const { 'nombre-medico': nombreMedico, 'documento-identidad': documentoIdentidad, 'fecha-nacimiento': fechaNacimiento, especialidad, email, contraseña, celular, rol } = req.body;
         const newMedico = {
             nombreMedico,
             documentoIdentidad,
             fechaNacimiento,
             especialidad,
-            correo,
+            email,
             contraseña,
             celular,
-            rol //TODO: Colocar Médico por defecto desde aqui como valor y quitarlo en el formulario.
+            rol: 'medico'
         };
         // Valores obtenidos del formulario
-        console.log(newMedico);
+        console.log('Admin.routes.js:', newMedico);
 
         createMedico({ ...req, body: newMedico }, res);
+        // Mensaje exitoso
+        req.flash('exitoso', 'Médico almacenado en la base de datos correctamente.');
+        // Renderizar
         res.redirect('/admin/medicos');
     } catch (error) {
         console.error(error);
@@ -53,6 +61,7 @@ router.get('/delete/medico/:id', async (req, res) => {
     try {
         const { id } = req.params.id;
         deleteMedico({ ...req, body: id }, res);
+        req.flash('exitoso', 'Médico eliminado de la base de datos correctamente.')
         res.redirect('/admin/medicos');
     } catch (error) {
         console.log(error);
@@ -66,10 +75,13 @@ router.get('/edit/medico/:id', async (req, res) => {
     try {
         // Obtenemos el ID del boton en lista-medicos.hbs
         const { id } = req.params;
-        // Obtenemos la información del medico seleccionado
-        const medico = await getMedico({ ...req, params: { id } }, res);
+        console.log(`Admin.routes:id del medico a editar`, id);
 
-        const medicoObj = medico[0];
+        // Obtenemos la información del medico seleccionado
+        const medico = await getMedico(id);
+
+        const medicoObj = medico;
+        console.log('admin.routes: medicoObjeto', medicoObj);
 
         // Formatear la fecha de nacimiento
         if (medicoObj && medicoObj.fecha_nacimiento) {
@@ -88,26 +100,16 @@ router.get('/edit/medico/:id', async (req, res) => {
 //  Realizar la petición para editar
 router.post('/edit/medico/:id', async (req, res) => {
     try {
+        console.log(`Desde AdminRoutes: `, req.body);
+        const { id } = req.params;
+        const { 'nombre-medico': nombre, 'documento-identidad': documento_identidad, 'fecha-nacimiento': fecha_nacimiento, especialidad, email, contraseña, numero_celular, rol } = req.body;
+        const newMedico = { nombre, documento_identidad, fecha_nacimiento, especialidad, email, contraseña, numero_celular, rol };
+
         console.log("ID recibido: ", req.params.id);
-        await (updateMedico(req));
+        await updateMedico({ params: { id }, body: newMedico });
+
+        req.flash('exitoso', 'Médico actualizado exitosamente.')
         res.redirect('/admin/medicos');
-
-        // console.log("ID recibido: ", id);
-        // const { 'nombre-medico': nombreMedico, 'documento-identidad': documentoIdentidad, 'fecha-nacimiento': fechaNacimiento, especialidad, correo, contraseña, celular, rol } = req.body;
-        // const newMedico = {
-        //     nombreMedico,
-        //     documentoIdentidad,
-        //     fechaNacimiento,
-        //     especialidad,
-        //     correo,
-        //     contraseña,
-        //     celular,
-        //     rol //TODO: Colocar Médico por defecto desde aqui como valor y quitarlo en el formulario.
-        // };
-
-
-        // await updateMedico({ params: id, body: newMedico });
-        // res.redirect('/admin/medicos');
     } catch (error) {
         console.error(error);
         res.send('Error al editar el medico en la base de datos.')

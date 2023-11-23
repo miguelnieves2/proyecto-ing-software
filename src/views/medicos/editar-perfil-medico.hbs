@@ -2,67 +2,51 @@
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="card shadow-lg p-4 mb-3 rounded color-card-registro">
+                <!-- Clases para sombra y fondo blanco -->
                 <div class="card-body">
-                    <h4 class="mb-4">Edición de Médico</h4>
-                    <form action="/admin/edit/medico/{{medico.id}}" method="POST">
-                        <!-- Nombre del médico -->
+                    <h4 class="mb-4">Editar perfil</h4>
+
+                    <!-- Formulario de Registro de Médico -->
+                    <form action="/medico/actualizar-perfil" method="POST">
                         <div class="mb-2">
                             <label for="nombre-medico" class="form-label">Nombre del médico:</label>
                             <input type="text" value="{{medico.nombre}}" class="form-control form-control-custom"
-                                name="nombre-medico" placeholder="Nombre del médico">
+                                name="nombre" placeholder="Nombre del médico" autofocus>
                         </div>
-                        <!-- Documento de identidad -->
                         <div class="mb-2">
                             <label for="documento-identidad" class="form-label">Documento de identidad:</label>
-                            <input type="number" value="{{medico.documento_identidad}}" name="documento-identidad"
+                            <input type="number" value="{{medico.documento_identidad}}" name="documento_identidad"
                                 class="form-control form-control-custom" placeholder="Documento de identidad" min="0">
                         </div>
-                        <!-- Fecha de nacimiento -->
-                        <div class="mb-2">
+                        <div class="mb-3">
                             <label for="fecha-nacimiento" class="form-label">Fecha de nacimiento:</label>
                             <input type="date" value="{{medico.fecha_nacimiento}}" id="fecha-nacimiento"
-                                name="fecha-nacimiento" class="form-control form-control-custom">
+                                name="fecha_nacimiento" class="form-control form-control-custom">
                         </div>
-                        <!-- Especialidad -->
                         <div class="mb-2">
                             <label for="especialidad" class="form-label">Especialidad:</label>
                             <input type="text" value="{{medico.especialidad}}" id="especialidad" name="especialidad"
                                 class="form-control form-control-custom" placeholder="Especialidad">
                         </div>
-                        <!-- Correo electrónico -->
                         <div class="mb-2">
-                            <label for="correo" class="form-label">Correo electrónico:</label>
-                            <input type="email" value="{{medico.email}}" id="correo" name="email"
+                            <label for="email" class="form-label">Correo electrónico:</label>
+                            <input type="email" value="{{medico.email}}" id="email" name="email"
                                 class="form-control form-control-custom" placeholder="Correo electrónico">
                         </div>
-                        <!-- Contraseña -->
                         <div class="mb-2">
                             <label for="contraseña" class="form-label">Contraseña:</label>
                             <input type="password" id="contraseña" name="contraseña"
                                 class="form-control form-control-custom" placeholder="Contraseña">
                         </div>
-                        <!-- Número de celular -->
-                        <div class="mb-2">
+                        <div class="mb-4">
                             <label for="celular" class="form-label">Número de celular:</label>
                             <input type="tel" value="{{medico.numero_celular}}" id="celular" name="numero_celular"
                                 class="form-control form-control-custom" placeholder="Número de celular">
                         </div>
-                        <!-- Rol -->
-                        <div class="mb-4">
-                            <label for="rol" class="form-label">Rol:</label>
-                            <select id="rol" name="rol" class="form-control form-control-custom" required>
-                                <option value="medico" {{#if (eq medico.rol "medico" )}}selected{{/if}}>Médico</option>
-                                <option value="recepcionista" {{#if (eq medico.rol "recepcionista" )}}selected{{/if}}>
-                                    Recepcionista</option>
-                                <option value="paciente" {{#if (eq medico.rol "paciente" )}}selected{{/if}}>Paciente
-                                </option>
-                                <option value="administrador" {{#if (eq medico.rol "administrador" )}}selected{{/if}}>
-                                    Administrador</option>
-                            </select>
-                        </div>
-                        <!-- Botón de guardar -->
                         <div class="d-grid">
-                            <button class="btn btn-form-login-signup" type="submit">Guardar Cambios</button>
+                            <button class="btn btn-form-login-signup" type="submit">
+                                Actualizar datos
+                            </button>
                         </div>
                     </form>
                 </div>

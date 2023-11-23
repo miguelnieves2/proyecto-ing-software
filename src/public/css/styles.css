@@ -1,0 +1,122 @@
+body {
+    background-color: #C9F0FC;
+}
+
+/* --------------- LOGIN Y REGISTRO --------------------*/
+
+#componente-iniciarsesion-registro {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+
+/* Estilo del formulario login-register*/
+
+/* Estilo personalizado para los campos de formulario */
+.form-control-custom {
+    border: 1px solid #909090;
+    /* Borde oscuro */
+    border-radius: 4px;
+    /* Radio del borde para suavizar las esquinas */
+}
+
+/* Aplicar el estilo personalizado al enfocar el campo */
+.form-control-custom:focus {
+    border-color: #007bff;
+    /* Cambia el color del borde al enfocar */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    /* Sombra para resaltar el campo */
+}
+
+.color-card-registro {
+    background-color: #b8e6f3;
+    /* Reemplaza con tu color en hexadecimal */
+}
+
+.img-login {
+    width: 100px;
+    height: auto;
+    /* Para mantener la proporcion imagen */
+    display: block;
+    margin: 0 auto;
+    /* Centra la imagen */
+}
+
+.btn-form-login-signup {
+    background-color: #ffe699;
+    border-color: #070707;
+    color: #070707;
+    padding: 0.6em 1.3em;
+    font-weight: 900;
+    font-size: 15px;
+    border: 3px solid black;
+    border-radius: 0.4em;
+    box-shadow: 0.1em 0.1em;
+}
+
+.btn-form-login-signup:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.20em 0.20em;
+    background-color: #ffe699;
+    color: #070707;
+}
+
+
+.btn-form-login-signup:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
+    background-color: #ffe699;
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: #666060;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 4px dotted #858181;
+    /* Línea más gruesa para puntos más grandes */
+    margin: 0 16px;
+}
+
+
+/* Contenido de la empresa en login y register */
+
+.logo-empresa {
+    width: 400px;
+    height: auto;
+    /* Para mantener la proporcion imagen */
+    display: block;
+    margin: 0 auto;
+    /* Centra la imagen */
+}
+
+.company-info p {
+    text-align: justify;
+}
+
+/* ------ ESTILOS GENERALES -------- */
+
+.a-sin-estilo {
+    color: black;
+    text-decoration: none;
+}
+
+.a-sin-estilo:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.card-custom {
+    background-color: #a0cfdf;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25), 0 3px 15px 0px rgba(0, 0, 0, 0.18) !important;
+}

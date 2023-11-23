@@ -11,13 +11,15 @@ export const getAdministradores = async (req, res) => {
     }
 }
 
-export const getAdministrador = async (req, res) => {
+export const getAdministrador = async (id) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM Administrador WHERE id = ?', [req.params.id])
-        if (rows.length <= 0) return res.status(404).json({
-            message: 'Administrador no encontrado'
-        })
-        res.json(rows[0])
+        const [rows] = await pool.query('SELECT * FROM Administrador WHERE id = ?', [id])
+
+        if (rows.length <= 0) {
+            throw new Error('Administrador no encontrado');
+        }
+
+        return rows[0];
     } catch (error) {
         return res.status(500).json({
             message: 'Something goes wrong'
@@ -71,5 +73,15 @@ export const updateAdministrador = async (req, res) => {
         return res.status(500).json({
             message: 'Something goes wrong.'
         })
+    }
+}
+
+export const getAdministradorPorEmail = async (email) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM Administrador WHERE email = ?', [email]);
+
+        return rows;
+    } catch (error) {
+        throw error;
     }
 }

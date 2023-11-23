@@ -1,14 +1,7 @@
 <div class="container p-4">
-    <!-- Botón para agregar médico si ya hay médicos registrados -->
-    {{#if medicos.length}}
-    <div class="row mb-4">
-        <div class="col text-start">
-            <a href="/admin/add-medico" class="btn btn-form-login-signup">Agregar un médico</a>
-        </div>
-    </div>
-    {{/if}}
 
-    {{#if medicos.length}}
+    {{#if pacientes.length}}
+    <h2 class="text-center mb-3">Pacientes</h2>
     <!-- Tabla de médicos -->
     <div class="table-responsive">
         <table class="table table-hover shadow-sm">
@@ -22,15 +15,15 @@
                 </tr>
             </thead>
             <tbody>
-                {{#each medicos}}
+                {{#each pacientes}}
                 <tr>
                     <td>{{nombre}}</td>
-                    <td>{{especialidad}}</td>
+                    <td>{{prestadora_servicios}}</td>
                     <td>{{email}}</td>
                     <td>{{numero_celular}}</td>
                     <td>
-                        <a href="/admin/edit/medico/{{id}}" class="btn btn-secondary btn-sm mb-1">Editar</a>
-                        <a href="/admin/delete/medico/{{id}}" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="#" class="btn btn-secondary btn-sm mb-1">Historial médico</a>
+                        <a href="#" class="btn btn-danger btn-sm">Gestionar citas médicas</a>
                     </td>
                 </tr>
                 {{/each}}
@@ -40,8 +33,7 @@
     {{else}}
     <div class="col-md-6 mx-auto">
         <div class="card card-body text-center">
-            <p>No hay médicos en la base de datos.</p>
-            <a href="/admin/add-medico" class="btn btn-primary">Agregar un médico</a>
+            <p>No hay pacientes en la base de datos.</p>
         </div>
     </div>
     {{/if}}

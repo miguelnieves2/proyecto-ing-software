@@ -1,0 +1,125 @@
+{{!-- BOOTSTRAP 5.3 --}}
+
+<div id="componente-iniciarsesion-registro">
+    <div class="row g-5">
+        <div class="col-md-6">
+
+            <div class="company-info ">
+                <img src="img/Servimed.png" alt="Logo de la Empresa" class="logo-empresa img-fluid">
+                <br>
+
+                <p>SERVIMED IPS, contribuye a la salud y bienestar de nuestros usuarios, buscando brindar la mejor
+                    atención a través de la práctica clínica, integrando servicios ambulatorios de calidad.</p>
+                <p>En SERVIMED IPS, valoramos su tiempo y comodidad tanto como su salud. Nuestro sistema fácil y
+                    seguro le da acceso rápido a servicios esenciales: gestión de citas, historial médico y
+                    consultas especializadas. Conéctese con nosotros para una experiencia de atención de salud más
+                    eficiente y personalizada.</p>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+
+            <div class="card shadow-lg p-4 mb-3 rounded color-card-registro">
+                <!-- Clases para sombra y fondo blanco -->
+                <div class="card-body">
+                    <h4 class="mb-4">Registro</h4>
+
+                    <!-- REGISTRO -->
+                    <form action="/registro" method="POST">
+                        <div class="mb-3">
+                            <input type="text" name="nombre" placeholder="Nombre completo"
+                                class="form-control form-control-custom" autofocus>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" name="documento_identidad" placeholder="Documento de Identidad"
+                                class="form-control form-control-custom">
+                        </div>
+                        <div class="mb-3">
+                            <input type="date" name="fecha_nacimiento" placeholder="Fecha de Nacimiento"
+                                class="form-control form-control-custom">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" name="tipo_sangre" placeholder="Tipo de Sangre"
+                                class="form-control form-control-custom">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" name="prestadora_servicios" placeholder="Prestadora de Servicios"
+                                class="form-control form-control-custom">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" name="email" placeholder="Correo electrónico"
+                                class=" form-control form-control-custom">
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" name="contraseña" placeholder="Contraseña"
+                                class="form-control form-control-custom">
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" name="numero_celular" placeholder="Número de Celular"
+                                class="form-control form-control-custom">
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-form-login-signup" type="submit">
+                                Registrar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{{!-- <div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Registro</h3>
+                </div>
+                <div class="card-body">
+
+
+                    <form action="/registro" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="nombre" placeholder="Nombre completo" class="form-control"
+                                autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="documento_identidad" placeholder="Documento de Identidad"
+                                class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="date" name="fecha_nacimiento" placeholder="Fecha de Nacimiento"
+                                class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="tipo_sangre" placeholder="Tipo de Sangre" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="prestadora_servicios" placeholder="Prestadora de Servicios"
+                                class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Correo electrónico" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="contraseña" placeholder="Contraseña" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="numero_celular" placeholder="Número de Celular"
+                                class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Registrar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --}}

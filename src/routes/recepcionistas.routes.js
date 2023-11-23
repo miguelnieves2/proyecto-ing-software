@@ -3,6 +3,11 @@ import { getRecepcionistas, getRecepcionista, createRecepcionista, updateRecepci
 
 const router = Router()
 
+// Crear la vista /home-recepcionista
+router.get('/home-recepcionista', (req, res) => {
+    res.render('recepcionistas/home-recepcionista')
+})
+
 router.get('/recepcionistas', getRecepcionistas)
 
 router.get('/recepcionistas/:id', getRecepcionista)

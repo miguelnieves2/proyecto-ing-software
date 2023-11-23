@@ -1,0 +1,16 @@
+/* --------------- NAVIGATION LOGIN - REGISTER ---------------*/
+.nav-padding-custom {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.nav-color-custom {
+    background-color: #C9F0FC !important;
+}
+
+.question-icon {
+    width: 56px;
+    /* Ajusta este valor según sea necesario */
+    height: auto;
+    /* Esto mantendrá la proporción de aspecto */
+}
