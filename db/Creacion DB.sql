@@ -1,7 +1,7 @@
-CREATE DATABASE servi_db; -- completar servi..._db
+CREATE DATABASE railway; -- completar servi..._db
 
 
-USE servi_db; -- completar servi..._db
+USE railway; -- completar servi..._db
 
 -- Paciente
 CREATE TABLE Paciente (

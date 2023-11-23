@@ -45,7 +45,8 @@ passport.use('local.registro', new LocalStrategy({
         prestadora_servicios,
         email,
         contraseña,
-        numero_celular
+        numero_celular,
+        rol: 'paciente' // Por defecto
     };
 
     nuevoUsuario.contraseña = await helpers.encryptContraseña(contraseña);
