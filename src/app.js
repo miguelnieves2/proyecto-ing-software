@@ -107,11 +107,32 @@ app.use('/paciente', checkRole('paciente'), isLoggedIn, pacientesRoutes);
 
 
 // Middleware para manejar rutas no encontradas - debe ser el último
-app.use((req, res, next) => { //TODO: REVISAR Y VOLVER A PONER DEL VIDEO 1
-    res.status(404).json({
-        message: 'Endpoint not found'
-    })
-})
+app.use((req, res) => {
+    if (req.isAuthenticated()) {
+        // Redirige según el rol del usuario
+        switch (req.user.rol) {
+            case 'administrador':
+                res.redirect('/admin/home-admin');
+                break;
+            case 'medico':
+                res.redirect('/medico/home-medico');
+                break;
+            case 'recepcionista':
+                res.redirect('/recepcionista/home-recepcionista');
+                break;
+            case 'paciente':
+                res.redirect('/paciente/home-paciente');
+                break;
+            default:
+                res.redirect('/');
+                break;
+        }
+    } else {
+        // Si el usuario no está autenticado, redirigir a la página de inicio de sesión
+        res.redirect('/iniciar-sesion');
+    }
+});
+
 
 
 export default app;

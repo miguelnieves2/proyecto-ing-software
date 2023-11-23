@@ -1,6 +1,7 @@
-CREATE DATABASE servimed_db;
+CREATE DATABASE servi_db; -- completar servi..._db
 
-USE servimed_db;
+
+USE servi_db; -- completar servi..._db
 
 -- Paciente
 CREATE TABLE Paciente (
@@ -43,7 +44,7 @@ CREATE TABLE Recepcionista (
 -- Administrador
 CREATE TABLE Administrador (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_usuario VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
     contraseña VARCHAR(255),
     permisos VARCHAR(255),
     rol VARCHAR(255) DEFAULT 'administrador'
@@ -87,6 +88,106 @@ ALTER TABLE Agenda ADD COLUMN medico_id INT;
 ALTER TABLE Agenda ADD FOREIGN KEY (medico_id) REFERENCES Medico(id);
 
 -- AÑADIR VALORES -----------------
+
+-- Paciente 1
+INSERT INTO Paciente (nombre, documento_identidad, fecha_nacimiento, tipo_sangre, prestadora_servicios, email, contraseña, numero_celular, historial_medico_id)
+VALUES ('Juan Pérez', '123456789', '1980-01-01 00:00:00', 'O+', 'Salud Total', 'juan.perez@email.com', 'contraseña123', '3001234567', 1);
+
+-- Paciente 2
+INSERT INTO Paciente (nombre, documento_identidad, fecha_nacimiento, tipo_sangre, prestadora_servicios, email, contraseña, numero_celular, historial_medico_id)
+VALUES ('Ana Gómez', '987654321', '1990-05-15 00:00:00', 'A-', 'MediPlus', 'ana.gomez@email.com', 'contraseña321', '3007654321', 2);
+
+-- Paciente 3
+INSERT INTO Paciente (nombre, documento_identidad, fecha_nacimiento, tipo_sangre, prestadora_servicios, email, contraseña, numero_celular, historial_medico_id)
+VALUES ('Carlos Martínez', '456123789', '1985-08-20 00:00:00', 'B+', 'Famisanar', 'carlos.martinez@email.com', 'contraseña456', '3004567890', 3);
+
+
+
+-- Medico 1
+INSERT INTO Medico (nombre, documento_identidad, fecha_nacimiento, especialidad, email, contraseña, numero_celular, agenda_id)
+VALUES ('Dra. Laura García', '1122334455', '1975-03-30 00:00:00', 'Cardiología', 'laura.garcia@email.com', 'contraseña789', '3101234567', 1);
+
+-- Medico 2
+INSERT INTO Medico (nombre, documento_identidad, fecha_nacimiento, especialidad, email, contraseña, numero_celular, agenda_id)
+VALUES ('Dr. Manuel López', '5566778899', '1982-07-10 00:00:00', 'Dermatología', 'manuel.lopez@email.com', 'contraseña987', '3107654321', 2);
+
+-- Medico 3
+INSERT INTO Medico (nombre, documento_identidad, fecha_nacimiento, especialidad, email, contraseña, numero_celular, agenda_id)
+VALUES ('Dra. Sofía Torres', '9988776655', '1990-12-25 00:00:00', 'Pediatría', 'sofia.torres@email.com', 'contraseña654', '3104567890', 3);
+
+
+
+-- Recepcionista 1
+INSERT INTO Recepcionista (nombre, documento_identidad, email, contraseña, numero_celular)
+VALUES ('Roberto Díaz', '2233445566', 'roberto.diaz@email.com', 'contraseña321', '3201234567');
+
+-- Recepcionista 2
+INSERT INTO Recepcionista (nombre, documento_identidad, email, contraseña, numero_celular)
+VALUES ('Marta Rodríguez', '6677889900', 'marta.rodriguez@email.com', 'contraseña432', '3207654321');
+
+-- Recepcionista 3
+INSERT INTO Recepcionista (nombre, documento_identidad, email, contraseña, numero_celular)
+VALUES ('Diego Fernández', '5544332211', 'diego.fernandez@email.com', 'contraseña543', '3204567890');
+
+
+
+-- Admministrador 1: admin123
+INSERT INTO Administrador (email, contraseña, permisos)
+VALUES ('admin1@gmail.com', '$2a$11$fqzUyzVzYtACMRMpUNHoxuLDbG2A.o2cZvQNvqwQC03riNHBItmxy', 'Todos');
+
+-- Admministrador 2
+INSERT INTO Administrador (email, contraseña, permisos)
+VALUES ('admin2@email.com', 'admin321', 'Limitados');
+
+-- Admministrador 3
+INSERT INTO Administrador (email, contraseña, permisos)
+VALUES ('admin3@email.com', 'admin456', 'Moderados');
+
+
+-- Cita 1
+INSERT INTO Cita (fecha_hora, estado, paciente_id, medico_id)
+VALUES ('2023-11-23 10:00:00', 'Confirmada', 1, 1);
+
+-- Cita 2
+INSERT INTO Cita (fecha_hora, estado, paciente_id, medico_id)
+VALUES ('2023-11-24 15:00:00', 'Pendiente', 2, 2);
+
+-- Cita 3
+INSERT INTO Cita (fecha_hora, estado, paciente_id, medico_id)
+VALUES ('2023-11-25 09:30:00', 'Cancelada', 3, 3);
+
+
+-- Historial medico 1
+INSERT INTO Historial_Medico (informacion_medica, medicamentos_recetados, pruebas_realizadas, paciente_id)
+VALUES ('Información médica del paciente 1', 'Medicamentos del paciente 1', 'Pruebas del paciente 1', 1);
+
+-- Historial medico 2
+INSERT INTO Historial_Medico (informacion_medica, medicamentos_recetados, pruebas_realizadas, paciente_id)
+VALUES ('Información médica del paciente 2', 'Medicamentos del paciente 2', 'Pruebas del paciente 2', 2);
+
+-- Historial medico 3
+INSERT INTO Historial_Medico (informacion_medica, medicamentos_recetados, pruebas_realizadas, paciente_id)
+VALUES ('Información médica del paciente 3', 'Medicamentos del paciente 3', 'Pruebas del paciente 3', 3);
+
+
+
+-- Agenda  1
+INSERT INTO Agenda (fechas_disponibles, medico_id)
+VALUES ('2023-11-23 10:00:00', 1);
+
+-- Agenda 2
+INSERT INTO Agenda (fechas_disponibles, medico_id)
+VALUES ('2023-11-24 15:00:00', 2);
+
+-- Agenda 3
+INSERT INTO Agenda (fechas_disponibles, medico_id)
+VALUES ('2023-11-25 09:30:00', 3);
+
+
+
+
+-- AÑADIR VALORES POR GRUPO DE VALORES:
+
 INSERT INTO Paciente (nombre, documento_identidad, fecha_nacimiento, tipo_sangre, prestadora_servicios, email, contraseña, numero_celular)
 VALUES 
 ('Juan Perez', '12345678', '1980-01-01 00:00:00', 'O+', 'Salud Total', 'juan.perez@email.com', 'contraseñaJuan', '3001234567'),
@@ -149,6 +250,12 @@ VALUES
 
 
 
+SELECT * FROM Administrador;
 
+SELECT * FROM Administrador WHERE email = 'admin1@gmail.com';
 
+SELECT * FROM Medico;
 
+SELECT * FROM Medico WHERE email = 'angel@gmail.com';
+
+SELECT * FROM Paciente;
