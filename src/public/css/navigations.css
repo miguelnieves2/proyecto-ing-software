@@ -29,3 +29,21 @@
     width: 60px;
     height: 60px;
 }
+
+/* Para pantallas de menos de 768px (por ejemplo, tablets y móviles) */
+@media (max-width: 767px) {
+    .whatsapp-btn img {
+        width: 50px;
+        /* Un tamaño más pequeño para pantallas menores */
+        height: 50px;
+    }
+}
+
+/* Para pantallas aún más pequeñas, como teléfonos móviles */
+@media (max-width: 480px) {
+    .whatsapp-btn img {
+        width: 40px;
+        /* Un tamaño aún más pequeño */
+        height: 40px;
+    }
+}
