@@ -131,3 +131,14 @@ body {
 .fondo-oscuro-card-header {
     background-color: #92aebc77;
 }
+
+
+/* Dar un espacio en lo ultimo de la página en dispositivos moviles, 
+porque los componentes estaban muy pegados al final de la página */
+
+@media (max-width: 768px) {
+    #componente-iniciarsesion-registro {
+        margin-bottom: 80px;
+        /* Menor en dispositivos móviles */
+    }
+}
