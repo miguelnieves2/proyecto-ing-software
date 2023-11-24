@@ -132,6 +132,22 @@ body {
     background-color: #92aebc77;
 }
 
+/* ------ PREGUNTAS FRECUENTES ------ */
+.btn-gray {
+    color: #808080;
+    /* Gris */
+}
+
+.btn-like.active {
+    color: green;
+    /* Verde para like */
+}
+
+.btn-dislike.active {
+    color: red;
+    /* Rojo para dislike */
+}
+
 
 /* Dar un espacio en lo ultimo de la página en dispositivos moviles, 
 porque los componentes estaban muy pegados al final de la página */

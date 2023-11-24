@@ -62,6 +62,33 @@
 
     {{!-- ICONOS DE FONT AWESOME --}}
     <script src="https://kit.fontawesome.com/65ea445e8b.js" crossorigin="anonymous"></script>
+
+    {{!-- Accion de colores botones preguntas frecuentes --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const likeButton = document.querySelector('.btn-like');
+            const dislikeButton = document.querySelector('.btn-dislike');
+
+            likeButton.addEventListener('click', function () {
+                // Activa el botón de like y desactiva el de dislike
+                likeButton.classList.remove('btn-gray');
+                likeButton.classList.add('active');
+                dislikeButton.classList.add('btn-gray');
+                dislikeButton.classList.remove('active');
+            });
+
+            dislikeButton.addEventListener('click', function () {
+                // Activa el botón de dislike y desactiva el de like
+                dislikeButton.classList.remove('btn-gray');
+                dislikeButton.classList.add('active');
+                likeButton.classList.add('btn-gray');
+                likeButton.classList.remove('active');
+            });
+        });
+
+    </script>
+
+
 </body>
 
 </html>

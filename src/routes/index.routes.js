@@ -9,4 +9,9 @@ router.get('/acerca', (req, res) => {
     res.render('acerca');
 });
 
+router.get('/preguntas-frecuentes', (req, res) => {
+    res.render('preguntas-frecuentes');
+});
+
+
 export default router
