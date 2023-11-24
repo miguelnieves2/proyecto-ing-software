@@ -142,3 +142,38 @@ porque los componentes estaban muy pegados al final de la página */
         /* Menor en dispositivos móviles */
     }
 }
+
+/* Reducir el tamaño del formulario en pantallas pequeñas */
+
+@media (max-width: 768px) {
+    .form-control-custom {
+        font-size: 14px;
+        /* Reduce el tamaño del texto */
+        padding: 8px 12px;
+        /* Reduce el padding para que el campo no se vea demasiado grande */
+    }
+
+    .btn-form-login-signup {
+        font-size: 14px;
+        /* Reduce el tamaño del texto del botón */
+        padding: 10px 15px;
+        /* Ajusta el padding según sea necesario */
+    }
+
+    .img-login {
+        width: 80px;
+        /* Reduce el tamaño de la imagen si es necesario */
+    }
+}
+
+@media (max-width: 768px) {
+    #componente-iniciarsesion-registro {
+        padding: 1rem;
+        /* Ajusta el padding del contenedor principal */
+    }
+
+    .divider {
+        margin: 15px 0;
+        /* Ajusta el espacio alrededor del divisor */
+    }
+}
