@@ -159,7 +159,18 @@ porque los componentes estaban muy pegados al final de la página */
     }
 }
 
-/* Reducir el tamaño del formulario en pantallas pequeñas */
+
+/* --- Separar ultima pregunta frecuente en pantallas pequeñas ---- */
+
+@media (max-width: 768px) {
+    .ultima-pregunta {
+        margin-bottom: 80px;
+
+    }
+}
+
+
+/* --- Reducir el tamaño del formulario en pantallas pequeñas ----- */
 @media (max-width: 768px) {
     .form-control-custom {
         font-size: 14px;
