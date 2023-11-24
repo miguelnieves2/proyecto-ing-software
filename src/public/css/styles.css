@@ -120,3 +120,14 @@ body {
     background-color: #a0cfdf;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25), 0 3px 15px 0px rgba(0, 0, 0, 0.18) !important;
 }
+
+/* ------ ACERCA ------- */
+
+.card-custom-acerca {
+    background-color: #e2f7ff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25), 0 3px 15px 0px rgba(0, 0, 0, 0.18) !important;
+}
+
+.fondo-oscuro-card-header {
+    background-color: #92aebc77;
+}

@@ -14,3 +14,18 @@
     height: auto;
     /* Esto mantendrá la proporción de aspecto */
 }
+
+
+/* ICONO WHATSAPP */
+
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.whatsapp-btn img {
+    width: 60px;
+    height: 60px;
+}
