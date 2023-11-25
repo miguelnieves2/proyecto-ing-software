@@ -66,26 +66,29 @@
     {{!-- Accion de colores botones preguntas frecuentes --}}
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const likeButton = document.querySelector('.btn-like');
-            const dislikeButton = document.querySelector('.btn-dislike');
+            const likeButtons = document.querySelectorAll('.btn-like');
+            const dislikeButtons = document.querySelectorAll('.btn-dislike');
 
-            likeButton.addEventListener('click', function () {
-                // Activa el botón de like y desactiva el de dislike
-                likeButton.classList.remove('btn-gray');
-                likeButton.classList.add('active');
-                dislikeButton.classList.add('btn-gray');
-                dislikeButton.classList.remove('active');
+            likeButtons.forEach(likeButton => {
+                likeButton.addEventListener('click', function () {
+                    // Activa el botón de like y desactiva el de dislike correspondiente
+                    this.classList.remove('btn-gray');
+                    this.classList.add('active');
+                    this.parentNode.querySelector('.btn-dislike').classList.add('btn-gray');
+                    this.parentNode.querySelector('.btn-dislike').classList.remove('active');
+                });
             });
 
-            dislikeButton.addEventListener('click', function () {
-                // Activa el botón de dislike y desactiva el de like
-                dislikeButton.classList.remove('btn-gray');
-                dislikeButton.classList.add('active');
-                likeButton.classList.add('btn-gray');
-                likeButton.classList.remove('active');
+            dislikeButtons.forEach(dislikeButton => {
+                dislikeButton.addEventListener('click', function () {
+                    // Activa el botón de dislike y desactiva el de like correspondiente
+                    this.classList.remove('btn-gray');
+                    this.classList.add('active');
+                    this.parentNode.querySelector('.btn-like').classList.add('btn-gray');
+                    this.parentNode.querySelector('.btn-like').classList.remove('active');
+                });
             });
         });
-
     </script>
 
 
