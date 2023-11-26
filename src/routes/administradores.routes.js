@@ -38,7 +38,7 @@ router.post('/add-medico', async (req, res) => {
         // Mensaje exitoso
         req.flash('exitoso', 'Médico almacenado en la base de datos correctamente.');
         // Renderizar
-        res.redirect('/admin/medicos');
+        res.redirect('/admin/home');
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al añadir el médico.')
